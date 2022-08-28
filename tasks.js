@@ -140,6 +140,7 @@ function getCoupeNumberFromTeacher(seatNumber) {
 // getTimeFromMinutes(0) => "Это 0 часов и 0 минут"
 // getTimeFromMinutes(-150) => "Ошибка, проверьте данные"
 // Место для первой задачи
+// test
 function getTimeFromMinutes(minutes) {
   if(!Number.isInteger(minutes) || minutes < 0){
     return "Ошибка, проверьте данные";
