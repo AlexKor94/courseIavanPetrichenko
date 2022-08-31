@@ -241,7 +241,7 @@ function fib(num) {
  }
 
  if(num === 1){
-  return "0"
+  return "0";
  }
 
  let res = "";
