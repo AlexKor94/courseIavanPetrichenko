@@ -20,8 +20,31 @@ function workWithOptionObj(){
     colors: {
       border: "black",
       background: "red"
+    },
+    makeTest: () => {
+      console.log('Test');
     }
   };
   console.log(options.name);
+  delete options.name;
+  
+  for(let key in options){
+    if(typeof(options[key]) === 'object') {
+      for(let i in options[key]){
+        console.log(`The Property ${i} has a value: ${options[key][i]}`);
+      }
+    }
+    console.log(`The Property ${key} has a value: ${options[key]}`);
+  }
+  console.log(options['colors']['border']);
+// recursion
+// object keys (Property) in array; 
+console.log(Object.keys(options));
+let objInArr = Object.keys(options);
+console.log(objInArr.length);
+options.makeTest();
+// Деруструктуризація обєкту (Destructurin of the object): 
+const {border, bg} = options.colors;
+console.log(border);
 }
 workWithOptionObj();
