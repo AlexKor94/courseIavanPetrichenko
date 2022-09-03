@@ -193,3 +193,19 @@ function testForEach(){
 }
 
 console.log(testForEach());
+
+function reverseString(){
+  const str = 'hello';
+  let splitStr = str.split('');
+  console.log(splitStr);
+}
+reverseString();
+
+// spread array
+function spreadArray(){
+ const arr1 = [1,2,3];
+ const arr2 = [4,5,6,7];
+ const arr3 = [...arr1, ...arr2];
+ console.log(arr3);
+}
+spreadArray();
