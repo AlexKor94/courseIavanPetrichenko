@@ -154,3 +154,42 @@ function deploymentArray(){
   console.log(internet);
 }
 deploymentArray();
+
+function log(a, b , c){
+  console.log(a);
+  console.log(b);
+  console.log(c);
+}
+
+let numbers = [2,5,7];
+log(...numbers);
+
+function transformArray(){
+  const array = ["a","b"];
+  const newArray = [...array];
+  console.log(newArray);
+}
+transformArray();
+
+function transformObj(){
+  const q = {
+    one: 1,
+    two: 2
+  };
+  const newObj = {...q};
+  console.log(newObj);
+}
+transformObj();
+
+// Method forEach
+
+function testForEach(){
+  const arr = [1,2,3];
+  let str = '';
+  arr.forEach((num)=>{
+    str += "1";
+  });
+  return str;
+}
+
+console.log(testForEach());
