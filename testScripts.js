@@ -209,3 +209,22 @@ function spreadArray(){
  console.log(arr3);
 }
 spreadArray();
+
+const soldier = {
+  health: 400,
+  armer: 100,
+  sayHello: function() {
+    console.log("Hello");
+  }
+};
+
+const jonh = {
+  health: 100
+};
+
+const alex = Object.create(soldier);
+// jonh.__proto__ = soldier; Deprecated
+Object.setPrototypeOf(jonh, soldier);
+
+//jonh.sayHello();
+alex.sayHello();
