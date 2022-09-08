@@ -228,3 +228,29 @@ Object.setPrototypeOf(jonh, soldier);
 
 //jonh.sayHello();
 alex.sayHello();
+
+// 1) To String
+console.log(typeof(String(null)));
+
+// 2) To Number
+console.log(typeof(Number('4')));
+console.log(typeof(+'5'));
+console.log(typeof(parseInt('15px',10)));
+
+// 3) To boolean
+// false: 0, "", null, undefined, NaN;
+
+let switcher = null;
+
+if(switcher){
+  console.log('working....');
+}
+
+switcher = 1;
+
+if(switcher){
+  console.log('working....');
+}
+
+console.log(typeof(Boolean('4')));
+console.log(typeof(!!"44"));
