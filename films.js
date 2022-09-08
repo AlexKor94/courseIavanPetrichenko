@@ -1,5 +1,8 @@
 "use strict";
 
+const button = document.querySelector('.but1');
+button.addEventListener("click",returnToConsole);
+
 const personalMovieDB = {
     count: 0,
     movies: {},
@@ -75,3 +78,8 @@ const personalMovieDB = {
 
     }
 };
+
+function returnToConsole(){
+    console.log('Hello world');
+}
+//button.addEventListener("click",personalMovieDB.start());
