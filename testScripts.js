@@ -1,14 +1,14 @@
 "use strict";
 // callBack
 function withCallBack(src,callBack){
-  console.log("src");
+  //console.log("src");
   src = " - link for second function";
   let someNewValue = ()=> callBack(src);
   someNewValue();
 }
 
 withCallBack("some link",(link)=>{
-  console.log(`second value ${link}`);
+  //console.log(`second value ${link}`);
 });
 
 // object loop
@@ -22,30 +22,30 @@ function workWithOptionObj(){
       background: "red"
     },
     makeTest: () => {
-      console.log('Test');
+      //console.log('Test');
     }
   };
-  console.log(options.name);
+  //console.log(options.name);
   delete options.name;
   
   for(let key in options){
     if(typeof(options[key]) === 'object') {
       for(let i in options[key]){
-        console.log(`The Property ${i} has a value: ${options[key][i]}`);
+        //console.log(`The Property ${i} has a value: ${options[key][i]}`);
       }
     }
-    console.log(`The Property ${key} has a value: ${options[key]}`);
+    //console.log(`The Property ${key} has a value: ${options[key]}`);
   }
-  console.log(options['colors']['border']);
+  //console.log(options['colors']['border']);
 // recursion
 // object keys (Property) in array; 
-console.log(Object.keys(options));
+//console.log(Object.keys(options));
 let objInArr = Object.keys(options);
-console.log(objInArr.length);
+//console.log(objInArr.length);
 options.makeTest();
 // Деруструктуризація обєкту (Destructurin of the object): 
 const {border, bg} = options.colors;
-console.log(border);
+//console.log(border);
 }
 workWithOptionObj();
 
@@ -54,39 +54,39 @@ function testArr(){
   const arr =[1,2,3,6,8];
  arr.pop();
  arr.push(10);
-  console.log(arr);
+  //console.log(arr);
 
   for (let vel of arr){
-    console.log(vel);
+    //console.log(vel);
   }
 
   arr[99] = 0;
-  console.log(arr.length);
-  console.log(arr);
+  //console.log(arr.length);
+  //console.log(arr);
 
   arr.forEach((item, i, arrLink) => {
-    console.log(`${i}: ${item} in array: ${arrLink}`);
+    //console.log(`${i}: ${item} in array: ${arrLink}`);
   });
 
   const str = "computer, leptop, monitor";
   const products = str.split(", ");
-  console.log(products);
+  //console.log(products);
 
   let newString = products.join(', ');
 
-  console.log(newString);
+  //console.log(newString);
 
   let numbersArr = [2,13,26,8,10];
   numbersArr.sort();
-  console.log(numbersArr);
+  //console.log(numbersArr);
   numbersArr.sort(compareNum);
-  console.log(numbersArr);
+  //console.log(numbersArr);
 }
 
 function compareNum(a, b) {
   return a - b;
 }
-testArr();
+//testArr();
 
 // Переда даних по посиланню і по значенню
 // Data transfer by link and value
@@ -96,8 +96,8 @@ function transferData(){
   b = a;
 
   b = b + 5;
-  console.log(b);
-  console.log(a);
+  //console.log(b);
+  //console.log(a);
 
   const obj = {
     a: 5,
@@ -105,13 +105,13 @@ function transferData(){
   }
   const copy = obj;
   copy["a"] = 10;
-  console.log(copy);
-  console.log(obj);
+  //console.log(copy);
+  //console.log(obj);
 
   let newObj = copyObj(obj);
   newObj["a"] = 11;
-  console.log(newObj);
-  console.log(obj);
+  //console.log(newObj);
+  //console.log(obj);
 
   const addNewObj = {
     d: 17,
@@ -120,8 +120,8 @@ function transferData(){
   
   const clone = Object.assign({},addNewObj);
   clone["d"] = 1;
-  console.log(clone);
-  console.log(addNewObj);
+  //console.log(clone);
+  //console.log(addNewObj);
 }
 
 function copyObj(obj){
@@ -141,8 +141,8 @@ function copyArr(){
   const oldArray = ['a','b','c'];
   const newArray = oldArray.slice();
   newArray[2] = "d";
-  console.log(oldArray);
-  console.log(newArray);
+  //console.log(oldArray);
+  //console.log(newArray);
 }
 
 //оператор разворота
@@ -151,14 +151,14 @@ function deploymentArray(){
   const video = ["youtube","udemy"],
         blogs = ['blogger', 'facebook', 'instagram'],
         internet = [...video, ...blogs, 'Gmail'];
-  console.log(internet);
+  //console.log(internet);
 }
-deploymentArray();
+//deploymentArray();
 
 function log(a, b , c){
-  console.log(a);
-  console.log(b);
-  console.log(c);
+  //console.log(a);
+  //console.log(b);
+  //console.log(c);
 }
 
 let numbers = [2,5,7];
@@ -167,7 +167,7 @@ log(...numbers);
 function transformArray(){
   const array = ["a","b"];
   const newArray = [...array];
-  console.log(newArray);
+  //console.log(newArray);
 }
 transformArray();
 
@@ -177,7 +177,7 @@ function transformObj(){
     two: 2
   };
   const newObj = {...q};
-  console.log(newObj);
+  //console.log(newObj);
 }
 transformObj();
 
@@ -192,12 +192,12 @@ function testForEach(){
   return str;
 }
 
-console.log(testForEach());
+////console.log(testForEach());
 
 function reverseString(){
   const str = 'hello';
   let splitStr = str.split('');
-  console.log(splitStr);
+  //console.log(splitStr);
 }
 reverseString();
 
@@ -206,15 +206,16 @@ function spreadArray(){
  const arr1 = [1,2,3];
  const arr2 = [4,5,6,7];
  const arr3 = [...arr1, ...arr2];
- console.log(arr3);
+ //console.log(arr3);
 }
-spreadArray();
+
+//spreadArray();
 
 const soldier = {
   health: 400,
   armer: 100,
   sayHello: function() {
-    console.log("Hello");
+    //console.log("Hello");
   }
 };
 
@@ -227,15 +228,15 @@ const alex = Object.create(soldier);
 Object.setPrototypeOf(jonh, soldier);
 
 //jonh.sayHello();
-alex.sayHello();
+//alex.sayHello();
 
 // 1) To String
-console.log(typeof(String(null)));
+//console.log(typeof(String(null)));
 
 // 2) To Number
-console.log(typeof(Number('4')));
-console.log(typeof(+'5'));
-console.log(typeof(parseInt('15px',10)));
+//console.log(typeof(Number('4')));
+//console.log(typeof(+'5'));
+//console.log(typeof(parseInt('15px',10)));
 
 // 3) To boolean
 // false: 0, "", null, undefined, NaN;
@@ -243,14 +244,46 @@ console.log(typeof(parseInt('15px',10)));
 let switcher = null;
 
 if(switcher){
-  console.log('working....');
+  //console.log('working....');
 }
 
 switcher = 1;
 
 if(switcher){
-  console.log('working....');
+  //console.log('working....');
 }
 
-console.log(typeof(Boolean('4')));
-console.log(typeof(!!"44"));
+//console.log(typeof(Boolean('4')));
+//console.log(typeof(!!"44"));
+
+let tstNum = 5;
+function logNumber(){
+  let tstNum = 4;
+  //console.log(tstNum);
+}
+logNumber();
+tstNum = 6;
+
+const user = {
+  name: 'Alex',
+  age: 25,
+  test: function(){
+    for (let i = 1; i < 5; i++) {
+      console.log(i + 1)
+  }
+  }
+}
+// const {name, age} = user;
+// console.log(name);
+// console.log(age);
+// user.test();
+
+
+function foo(a,b) {
+  let word = a[1];
+  const [first, second] = a;
+  const {eng, ru} = b;
+
+  return `${second} ${ru}`;
+}
+ console.log(foo(['Hello', 'Привет'], {ru: 'Мир', eng: 'World'}));
