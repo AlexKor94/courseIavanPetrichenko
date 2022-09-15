@@ -1,3 +1,10 @@
 .block1 {
+  position: relative;
   border: 1px solid red;
+  width: 1200px;
+  height: 200px;
+}
+
+img {
+  position: absolute;
 }
