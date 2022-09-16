@@ -399,4 +399,3 @@ console.log(Object.getOwnPropertyDescriptor(objUser, 'name'));
 // // objUser.name = "dsfsdf"; -- only read
 // Object.defineProperty(objUser, 'gender', {value: 'male'});
 // console.log(Object.getOwnPropertyDescriptor(objUser, 'gender'));
-
