@@ -223,7 +223,7 @@ const jonh = {
   health: 100
 };
 
-const alex = Object.create(soldier);
+//const alex = Object.create(soldier);
 // jonh.__proto__ = soldier; Deprecated
 Object.setPrototypeOf(jonh, soldier);
 
@@ -335,45 +335,45 @@ if (n === 1) {
 }]
  };
 
- function getTotalProgressByIteration(data){
-  let total = 0;
-  let students = 0;
-  const arr = Object.values(data);
+//  function getTotalProgressByIteration(data){
+//   let total = 0;
+//   let students = 0;
+//   const arr = Object.values(data);
 
-  for (let course of arr) {
-    students += course.length;
-    for(let i = 0; i < course.length; i++) {
-      total += course[i].progress;
-    } 
-  }
+//   for (let course of arr) {
+//     students += course.length;
+//     for(let i = 0; i < course.length; i++) {
+//       total += course[i].progress;
+//     } 
+//   }
 
-  return total / students;
- }
+//   return total / students;
+//  }
 
  //console.log(getTotalProgressByIteration(students));
 
-////////////
-function getTotalProgressByRecursion(data){
-  if (Array.isArray(data)) {
-    let total = 0;
-    for (let i = 0; i < data.length; i++){
-      total += data[i].progress;
-    }
-    return [total, data.length];
-  } else {
-    let total = [0, 0];
-    for (let subData of Object.values(data)){
-      const subDataArr = getTotalProgressByRecursion(subData);
-      total[0] += subDataArr[0];
-      total[1] += subDataArr[1];
-    }
-    return total;
-  }
-}
+// //////
+// function getTotalProgressByRecursion(data){
+//   if (Array.isArray(data)) {
+//     let total = 0;
+//     for (let i = 0; i < data.length; i++){
+//       total += data[i].progress;
+//     }
+//     return [total, data.length];
+//   } else {
+//     let total = [0, 0];
+//     for (let subData of Object.values(data)){
+//       const subDataArr = getTotalProgressByRecursion(subData);
+//       total[0] += subDataArr[0];
+//       total[1] += subDataArr[1];
+//     }
+//     return total;
+//   }
+// }
 
-const results = getTotalProgressByRecursion(students);
+// const results = getTotalProgressByRecursion(students);
 
-console.log(results[0]/results[1]);
+//console.log(results[0]/results[1]);
 
 
 // descriptors object
@@ -382,20 +382,267 @@ console.log(results[0]/results[1]);
 // enumerable
 // configurable
 
-const objUser = {
-  name: 'Alex',
-  surname: 'Smithe',
-  birthday: '20/04/1993',
-  shiwMyPublicData: function() {
-    console.log(`${this.name} ${this.surname}`);
-  }
-};
+// const objUser = {
+//   name: 'Alex',
+//   surname: 'Smithe',
+//   birthday: '20/04/1993',
+//   shiwMyPublicData: function() {
+//     //console.log(`${this.name} ${this.surname}`);
+//   }
+// };
 
-Object.defineProperty(objUser, 'birthday', {writable: false});
+// Object.defineProperty(objUser, 'birthday', {writable: false});
 
-console.log(Object.getOwnPropertyDescriptor(objUser, 'name'));
+//console.log(Object.getOwnPropertyDescriptor(objUser, 'name'));
 
 // Object.defineProperty(objUser, 'name', {writable: false});
 // // objUser.name = "dsfsdf"; -- only read
 // Object.defineProperty(objUser, 'gender', {value: 'male'});
-// console.log(Object.getOwnPropertyDescriptor(objUser, 'gender'));
+// //console.log(Object.getOwnPropertyDescriptor(objUser, 'gender'));
+
+// function disemvowel(str) {
+//   return str.replace(/[aeiou]/gi, '');
+// }
+
+//console.log(disemvowel());
+
+
+// Задание:
+// В каждой книге есть n страниц с номерами страниц от 1 до n. Написать функцию amountOfPages, аргумент которой summary составляется путем сложения количества цифр всех номеров страниц. Эта функция возвращает число - количество страниц n в книге. Чтобы было понятно что такое количество цифр, давайте рассмотрим примеры.
+// Пример:
+// Если на входе функции summary = 25, то на результат должен быть 17. Всего в числах от 1 до 17 содержится 25 цифр: 1234567891011121314151617.
+// from teacher:
+// function amountOfPages(summary){
+//   let result = '';
+//   let n = 0;
+
+//   for (let i = 1; i <= summary; i++) {
+//     result += i;
+//     if (result.length === summary) {
+//       n = i;
+//       break;
+//     }
+//   }
+
+//   return n;
+// }
+
+// Панграмма — это предложение, в котором каждая буква алфавита встречается хотя бы по одному разу без повторений. Например, предложение «The quick brown fox jumps over the lazy dog» является панграммой, поскольку в нем хотя бы один раз используются буквы от A до Z (регистр значения не имеет).
+// Напишите функцию isPangram, которая принимает в себя строку и возвращает логическое значение. Если строка является панграммой - вернется true, если нет - false.
+// Пример:
+// isPangram(«The quick brown fox jumps over the lazy dog») => true
+// isPangram(«Hello world») => false
+
+// function isPangram(str = ""){
+//   const string = str.toUpperCase();
+//   const alphabet = [ 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L',
+//   'M', 'N', 'O', 'P', 'Q', 'R',  'S', 'T', 'U', 'V', 'W', 'X',
+//   'Y', 'Z' ];
+//   let i = string.length;
+
+//   while(i--){
+//     let index = alphabet.indexOf(string.charAt(i));
+//     if (index > -1){
+//       alphabet.splice(index, 1);
+//     }
+//   }
+//   if( alphabet.length === 0) {
+//     return true;
+//   } else {
+//     return false;
+//   }
+// }
+
+// console.log(isPangram("The quick brown fox jumps over the lazy dog"));
+
+// const isBelowThreshold = (currentValue) => currentValue < 40;
+
+// const array1 = [1, 30, 39, 29, 10, 13];
+
+// console.log(array1.every(isBelowThreshold));
+// expected output: true
+
+// function someFunc (str = "dog") {
+//   const alphabet = 'abcdefghijklmnopqrstuvwxyz';
+//   const arr = alphabet.split('');
+//   return arr.every(x => str.toLowerCase().includes(x));
+// }
+
+// console.log("abc".includes("A"));
+
+
+// function isPangram(str = ""){
+//     const string = str.toUpperCase();
+//     const alphabet = [ 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L',
+//     'M', 'N', 'O', 'P', 'Q', 'R',  'S', 'T', 'U', 'V', 'W', 'X',
+//     'Y', 'Z' ];
+//     console.log(string.includes('A'));
+//     let result =  alphabet.every((letter) => {
+//       return string.includes(letter)
+//     });
+//     return result;
+// }
+//   console.log(isPangram("The quick brown fox jumps over the lazy dog"));
+
+  // ================ WeakMap =================
+
+  // let cache = new WeakMap();
+
+  // function cacheUser(user){
+  //   if(!cache.has(user)){
+  //     cache.set(user, Date.now());
+  //   }
+  //   return cache.get(user);
+  // }
+
+  // let lena = {name: 'Elenf'};
+  // let alex = {name: 'Alex'};
+
+  // cacheUser(lena);
+  // cacheUser(alex);
+
+  // cache.delete(lena);
+
+  // console.log(cache.has(lena));
+  // console.log(cache.has(alex));
+
+// WeakSet
+// add, has, delete
+
+// let massages = [
+//   {text: 'hello', from: 'John'},
+//   {text: 'World', from: 'Lena'},
+//   {text: 'Uhh', from: 'Jeka'}
+// ];
+
+// let readMessages = new WeakSet();
+
+// readMessages.add(massages[0]);
+//readMessages.add(massages[1]);
+
+// massages.shift();
+
+// console.log(readMessages.has(massages[0]));
+
+// const now = new Date();
+
+// console.log(now.setHours(18));
+// console.log(now);
+
+// let start = new Date();
+// for (let i =0; i < 100000; i++){
+//   let some = i ** 3;
+// }
+// let end = new Date();
+
+// console.log(`Loop work for ${end - start} milisecond || minute ${(end - start) / 60}`);
+
+
+// Contructor function
+function User (name, id){
+  this.name = name;
+  this.id = id;
+  this.human = true;
+  this.hello = function () {
+    console.log(`Hello ${this.name}`)
+  };
+}
+
+User.prototype.exit = function () {
+  console.log(`Пользователь ${this.name} ушел`);
+};
+
+const ivan = new User('Ivan', 1);
+const alex = new User('Alex', 2);
+
+//ivan.exit();
+
+//console.log(ivan);
+
+// Call Context
+function showThis(a, b) {
+  console.log(this);
+  function sum() {
+    console.log(this);
+    return a + b;
+  }
+  console.log(sum());
+}
+//showThis(4, 5);
+
+// const obj = {
+//   a: 20,
+//   b: 15,
+//   sum: function() { 
+//     console.log(this);
+//   }
+// };
+
+// obj.sum();
+
+// function sayName(surname) {
+//   console.log(this);
+//   console.log(this.name + " " + surname);
+// }
+
+// const user = {
+//   name: 'John'
+// };
+
+// sayName.call(user, 'Smith');
+// sayName.apply(user, ['Smith']);
+
+// function count (num) {
+//   return this * num;
+// }
+
+// const double = count.bind(2);
+// console.log(double(3));
+// console.log(double(13));
+
+// const obj = {
+//   num: 5,
+//   sayNumber: function() {
+//     const say = () => {
+//       console.log(this.num);
+//     };
+
+//     say();
+//   }
+// };
+
+// obj.sayNumber();
+
+class Rectangle {
+   constructor(height, width) {
+      this.height = height;
+      this.width = width;
+   }
+
+   calcArea() {
+    return this.height * this.width;
+   }
+}
+
+class ColoredRectanglWithText extends Rectangle {
+  constructor (height, width, text, bgColor) {
+    super(height, width);
+    this.text = text;
+    this.bgColor = bgColor;
+  }
+
+  showMyProps() {
+    console.log(`Text: ${this.text}, color: ${this.bgColor}`);
+  }
+}
+
+const div = new ColoredRectanglWithText(25, 10, 'Hello World', 'red');
+
+div.showMyProps();
+console.log(div.calcArea());
+
+const square = new Rectangle(10, 10);
+const long = new Rectangle(20, 100);
+
+console.log(square.calcArea());
+console.log(long.calcArea());
