@@ -613,36 +613,85 @@ function showThis(a, b) {
 
 // obj.sayNumber();
 
-class Rectangle {
-   constructor(height, width) {
-      this.height = height;
-      this.width = width;
-   }
+// =============== Create classes ===============================
 
-   calcArea() {
-    return this.height * this.width;
-   }
+// class Rectangle {
+//    constructor(height, width) {
+//       this.height = height;
+//       this.width = width;
+//    }
+
+//    calcArea() {
+//     return this.height * this.width;
+//    }
+// }
+
+// class ColoredRectanglWithText extends Rectangle {
+//   constructor (height, width, text, bgColor) {
+//     super(height, width);
+//     this.text = text;
+//     this.bgColor = bgColor;
+//   }
+
+//   showMyProps() {
+//     console.log(`Text: ${this.text}, color: ${this.bgColor}`);
+//   }
+// }
+
+// const div = new ColoredRectanglWithText(25, 10, 'Hello World', 'red');
+
+// div.showMyProps();
+// console.log(div.calcArea());
+
+// const square = new Rectangle(10, 10);
+// const long = new Rectangle(20, 100);
+
+// console.log(square.calcArea());
+// console.log(long.calcArea());
+
+// =============== Create classes ===============================
+
+// =============== Start Rest Operator ===============================
+
+function setOptions(height, width, ...additional) {
+    console.log(height, width, ...additional)
 }
+setOptions(400, 500, 'red', ['top']);
 
-class ColoredRectanglWithText extends Rectangle {
-  constructor (height, width, text, bgColor) {
-    super(height, width);
-    this.text = text;
-    this.bgColor = bgColor;
-  }
+// =============== End Rest Operator ===============================
 
-  showMyProps() {
-    console.log(`Text: ${this.text}, color: ${this.bgColor}`);
-  }
-}
+// const urlObj = {
+//   protocol: 'https',
+//   domain: 'mysite.com'
+// }
 
-const div = new ColoredRectanglWithText(25, 10, 'Hello World', 'red');
+// function showCurrentURL() {
+//   const extractCurrDomain = () => {
+//       return this.domain;
+//   }
+//   const extractCurrProtocol = () => {
+//       return this.protocol;
+//   }
 
-div.showMyProps();
-console.log(div.calcArea());
+//   console.log(`${extractCurrProtocol()}://${extractCurrDomain()}`)
+// }
 
-const square = new Rectangle(10, 10);
-const long = new Rectangle(20, 100);
+// const url = showCurrentURL.bind(urlObj);
 
-console.log(square.calcArea());
-console.log(long.calcArea());
+// console.log(url);
+
+// =============== Start JSON ===============================
+// =============== End JSON ===============================
+
+const persone = {
+  name: 'Alex',
+  tel: '+380931111'
+};
+
+const jsonFile = JSON.stringify(persone);
+
+const fullCopyObj = JSON.parse(jsonFile);
+
+fullCopyObj.name = 'Ivan';
+
+console.log(persone, fullCopyObj);
