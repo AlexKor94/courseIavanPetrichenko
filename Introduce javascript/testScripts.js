@@ -683,15 +683,104 @@ setOptions(400, 500, 'red', ['top']);
 // =============== Start JSON ===============================
 // =============== End JSON ===============================
 
-const persone = {
-  name: 'Alex',
-  tel: '+380931111'
-};
+// const persone = {
+//   name: 'Alex',
+//   tel: '+380931111'
+// };
 
-const jsonFile = JSON.stringify(persone);
+// const jsonFile = JSON.stringify(persone);
 
-const fullCopyObj = JSON.parse(jsonFile);
+// const fullCopyObj = JSON.parse(jsonFile);
 
-fullCopyObj.name = 'Ivan';
+// fullCopyObj.name = 'Ivan';
 
-console.log(persone, fullCopyObj);
+// console.log(persone, fullCopyObj);
+
+// =============== Promise start JSON ===============================
+// console.log('Start query data');
+
+// const promiseObj = new Promise((resolve, reject) => {
+
+//   setTimeout(() => {
+//     console.log('Prepering data');
+  
+//     const product = {
+//       name: 'TV',
+//       price: 2000
+//     };
+    
+//     resolve(product);
+//   },2000);
+
+// }).then((product) => {
+//   setTimeout(() => {
+//     product.status = 'order';
+//     console.log('recived in stock');
+
+//   setTimeout(() => {
+//     product.price = 2500;
+//     console.log('update data');
+//     console.log(product);
+//   }, 1000);
+
+//   }, 1000);
+// }).catch(() => {
+//   console.error('Some problem...');
+// });
+
+// //--------
+
+// var isMomHappy = true;
+
+// var showOff = function (phone) {
+//   return new Promise(
+//       function (resolve, reject) {
+//           var message = 'Hey friend, I have a new ' +
+//               phone.color + ' ' + phone.brand + ' phone';
+//           resolve(message);
+//       }
+//   );
+// };
+
+// // Promise
+// var willIGetNewPhone = new Promise(
+//     function (resolve, reject) {
+//         if (isMomHappy) {
+//             var phone = {
+//                 brand: 'Samsung',
+//                 color: 'black'
+//             };
+//             resolve(phone); // Всё выполнено
+//         } else {
+//             var reason = new Error('mom is not happy');
+//             reject(reason); // reject
+//         }
+
+//     }
+// );
+// console.log('before asking Mom'); 
+// willIGetNewPhone.then((phone) => {
+//   console.log('Yepiii, I have the new phone!');
+//   showOff(phone).then((message) => {
+//     console.log(message);
+//     console.log('All steps successfully done!');
+//   });
+// }).catch((err) => {
+//   console.log(err.message);
+// });
+// console.log('after asking mom');
+// =============== Promise end JSON ===============================
+
+// =============== Api start JSON ===============================
+//
+fetch('https://jsonplaceholder.typicode.com/posts', {
+  method: "POST",
+  body: JSON.stringify({name:'Alex'}),
+  headers: {
+    'Content-type': 'application/json'
+  }
+})
+  .then(response => response.json())
+  .then(json => console.log(json));
+
+// =============== Api end JSON ===============================
